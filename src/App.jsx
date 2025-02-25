@@ -1,39 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import React from 'react';
+import PostCard from './components/postcard';
 
-function App() {
-
-  const initialPosts = [
+const App = () => {
+  // Array of post data
+  const posts = [
     {
       id: 1,
-      profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-      username: 'alice',
-      content: 'This is my first post!',
-      isLiked: false,
+      profilePicture: 'https://randomuser.me/api/portraits/men/1.jpg',
+      username: 'john_doe',
+      content: 'Just had a great lunch! #foodie'
     },
     {
       id: 2,
-      profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
-      content: 'Loving this social media app.',
-      isLiked: true,
+      profilePicture: 'https://randomuser.me/api/portraits/women/1.jpg',
+      username: 'jane_smith',
+      content: 'Exploring the city today! #adventure'
     },
-    {
-      id: 3,
-      profileImage: 'https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png',
-      username: 'charlie',
-      content: 'Just another day...',
-      isLiked: false,
-    },
+    // Add more posts as needed
   ];
 
   return (
-    <>
-      
-    </>
-  )
-}
+    <div className="App" style={{ padding: '20px', backgroundColor: '#efefef' }}>
+      <h1>Home Page</h1>
+      {posts.map(post => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </div>
+  );
+};
 
-export default App
+export default App;
